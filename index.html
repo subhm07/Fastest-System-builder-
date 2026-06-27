@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Agent Progress Tracker - Futuristic Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="matrix-background"></div>
+    
+    <div class="container">
+        <header>
+            <h1>AI Agent Progress Tracker</h1>
+            <p class="subtitle">Monitor your daily AI-assisted task accomplishments</p>
+        </header>
+
+        <main>
+            <div class="progress-card">
+                <h2>Daily Progress</h2>
+                <div class="progress-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Tasks Completed Today:</span>
+                        <span class="stat-value" id="daily-count">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Current Streak:</span>
+                        <span class="stat-value" id="streak-count">0</span> days
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Efficiency Rating:</span>
+                        <span class="stat-value" id="efficiency">0%</span>
+                    </div>
+                </div>
+                
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+                
+                <button id="task-button" class="action-button">
+                    Mark Task as Completed
+                </button>
+                
+                <div class="recent-activity">
+                    <h3>Recent Activity</h3>
+                    <ul id="activity-log">
+                        <li>No tasks logged yet</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-panel">
+                <h2>How It Works</h2>
+                <p>This tracker helps you monitor the effectiveness of your AI agents in handling daily tasks. Each time you mark a task as completed through your AI assistant, log it here to see your progress over time.</p>
+                
+                <h3>Features:</h3>
+                <ul>
+                    <li>Real-time progress tracking</li>
+                    <li>Streak motivation system</li>
+                    <li>Efficiency analytics</li>
+                    <li>Activity logging</li>
+                    <li>Futuristic Matrix-inspired interface</li>
+                </ul>
+            </div>
+        </main>
+
+        <footer>
+            <p>Built for Shubham's AI Agents YouTube Channel | <a href="#" id="github-link">GitHub Repo</a></p>
+            <p class="matrix-footer">∞ ∞ ∞ ∞ ∞ ∞ ∞ ∞ ∞ ∞ ∞ ∞ ∞ ∞ ∞ ∞ ∞ ∞ ∞ ∞ ∞</p>
+        </footer>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

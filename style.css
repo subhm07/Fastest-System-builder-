@@ -1,0 +1,345 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+:root {
+    --primary: #00ff41;
+    --dark: #0a0a0a;
+    --darker: #050505;
+    --light: #e0e0e0;
+    --matrix-green: #00ff41;
+    --matrix-dark: #001a00;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Orbitron', monospace;
+    background-color: var(--darker);
+    color: var(--light);
+    overflow-x: hidden;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.matrix-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(180deg, rgba(10,10,10,0.9) 0%, rgba(5,5,5,0.95) 100%),
+        repeating-linear-gradient(
+            0deg,
+            rgba(0, 255, 65, 0.05) 0px,
+            rgba(0, 255, 65, 0.05) 1px,
+            transparent 1px,
+            transparent 20px
+        );
+    z-index: -2;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.matrix-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 50% 50%, rgba(0,255,65,0.1) 0%, transparent 70%),
+        repeating-linear-gradient(
+            90deg,
+            rgba(0,255,65,0.05) 0px,
+            rgba(0,255,65,0.05) 1px,
+            transparent 1px,
+            transparent 20px
+        );
+    animation: matrixRain 20s linear infinite;
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes matrixRain {
+    0% {
+        background-position: 0 0, 0 0;
+    }
+    100% {
+        background-position: 0 1000px, 0 1000px;
+    }
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: var(--matrix-green);
+    text-shadow: 0 0 10px rgba(0, 255, 65, 0.5), 0 0 20px rgba(0, 255, 65, 0.3);
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: var(--light);
+    opacity: 0.8;
+    letter-spacing: 1px;
+}
+
+main {
+    width: 100%;
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.progress-card, .info-panel {
+    background: rgba(10, 10, 10, 0.8);
+    border: 1px solid rgba(0, 255, 65, 0.3);
+    border-radius: 10px;
+    padding: 1.5rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
+    width: 100%;
+    max-width: 350px;
+    box-sizing: border-box;
+}
+
+.progress-card h2, .info-panel h2 {
+    color: var(--matrix-green);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    text-align: center;
+    text-shadow: 0 0 5px rgba(0, 255, 65, 0.3);
+}
+
+.progress-stats {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(0, 255, 65, 0.1);
+}
+
+.stat-label {
+    font-size: 1rem;
+    color: var(--light);
+    opacity: 0.8;
+}
+
+.stat-value {
+    font-weight: 700;
+    color: var(--matrix-green);
+    font-family: 'Orbitron', monospace;
+    text-shadow: 0 0 5px rgba(0, 255, 65, 0.3);
+}
+
+.progress-bar-container {
+    width: 100%;
+    height: 20px;
+    background: rgba(0, 255, 65, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(0, 255, 65, 0.2);
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--matrix-green), rgba(0, 255, 65, 0.5));
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+    transition: width 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(0, 255, 65, 0.2),
+        transparent
+    );
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+.action-button {
+    background: linear-gradient(145deg, var(--matrix-green), #00cc33);
+    color: var(--darker);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: 'Orbitron', monospace;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.4);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+.action-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px rgba(0, 255, 65, 0.6);
+    background: linear-gradient(145deg, #00cc33, var(--matrix-green));
+}
+
+.action-button:active {
+    transform: translateY(0);
+}
+
+.recent-activity h3 {
+    color: var(--matrix-green);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+#activity-log {
+    list-style: none;
+    max-height: 150px;
+    overflow-y: auto;
+    padding: 0.5rem;
+    border-top: 1px solid rgba(0, 255, 65, 0.1);
+}
+
+#activity-log li {
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    background: rgba(0, 255, 65, 0.05);
+    border-radius: 5px;
+    border-left: 2px solid var(--matrix-green);
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.activity-time {
+    font-size: 0.8rem;
+    opacity: 0.7;
+    color: var(--light);
+}
+
+.info-panel h3 {
+    color: var(--matrix-green);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.info-panel p, .info-panel ul {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--light);
+    opacity: 0.9;
+}
+
+.info-panel ul {
+    padding-left: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.info-panel li {
+    margin-bottom: 0.5rem;
+}
+
+footer {
+    text-align: center;
+    margin-top: auto;
+    padding: 2rem;
+    width: 100%;
+    font-size: 0.9rem;
+    color: var(--light);
+    opacity: 0.7;
+}
+
+#github-link {
+    color: var(--matrix-green);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--matrix-green);
+}
+
+#github-link:hover {
+    opacity: 0.8;
+}
+
+.matrix-footer {
+    font-family: 'Orbitron', monospace;
+    letter-spacing: 2px;
+    opacity: 0.5;
+    font-size: 0.8rem;
+    margin-top: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .main {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .progress-card, .info-panel {
+        width: 100%;
+        margin-bottom: 1.5rem;
+    }
+    
+    footer {
+        padding: 1rem;
+    }
+}
+
+/* Animation for matrix effect in footer */
+@matrixRain 0s linear infinite;
