@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Agent Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="matrix-background"></div>
+    <div class="container">
+        <h1>AI Agent Dashboard</h1>
+        <div class="stats">
+            <div class="stat">
+                <h3>Tasks Completed</h3>
+                <p id="tasks-completed">0</p>
+            </div>
+            <div class="stat">
+                <h3>Focus Time</h3>
+                <p id="focus-time">0 min</p>
+            </div>
+            <div class="stat">
+                <h3>Success Rate</h3>
+                <p id="success-rate">0%</p>
+            </div>
+        </div>
+        <div class="task-input">
+            <input type="text" id="task-input" placeholder="Enter your AI agent task...">
+            <button id="add-task">Add Task</button>
+        </div>
+        <ul id="task-list"></ul>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
